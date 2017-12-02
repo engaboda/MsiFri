@@ -1,0 +1,67 @@
+{% extends 'music/base_page.html' %}
+<title>{%block head %}Album Details{% endblock %}</title>
+{% block body %}
+ <!--       <h1>{{album.artist }}</h1>
+        <h3>{{album.album_title}}</h3>
+        {% if error_message %}
+            <p>{{error_message}}<p/>
+        {% endif %}
+
+
+
+<!--
+        <form action="{% url 'music:detail' album.id %}" method="POST">
+            {% csrf_token %}
+            {% for song in album.song_set.all %}
+            <input type="radio" name="song" id="song{{forloop.counter}}" value="{{song.id}}"/>
+            <label for="song{{forloop.counter}}">
+                {{song.name}}
+                <img src="http://i.imgur.com/b9b13Rd.png" alt="">
+                {% if song.is_favorite %}
+                   <img src="http://i.imgur.com/b9b13Rd.png" alt="">
+                {% endif %}
+            </label><br>
+            {% endfor %}
+            <input type="submit" value="Favorite">
+
+        </form>
+-->
+
+
+    <div class="row" >
+      <div class="col-sm-3 col-offset-0">
+        <div class="thumbnail">
+          <img src="{{album.album_logo}}" alt="Not Found">
+          <div class="caption">
+            <h3>Artist:{{album.artist}}</h3>
+            <p>Title:{{album.album_title}}</p>
+              <p>Genereal:{{album.genr}}</p>
+
+          </div>
+        </div>
+      </div>
+        <p><a href="{% url 'music:index' %}" class="btn btn-primary" role="button">View All</a>&nbsp&nbsp<a href="{% url 'music:detail' album.id%}" class="btn btn-primary" role="button">Add New Song</a><br><br><br>
+
+        <h3>All Sogns</h3>
+        <div class="container"  >
+        <div class="col-sm-7 col-sm-offset-2">
+            <table class="table">
+
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Audio File</th>
+                    <th>Favorite</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+              </table>
+
+
+            </div>
+            </div>
+    </div>
+
+
+
+{% endblock %}
